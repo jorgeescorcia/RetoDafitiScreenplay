@@ -11,7 +11,7 @@ la automatizacion tiene como objetivo lo siguiente:
 # Task
 son las interacciones que se llevarán a cabo para cumplir con las historias de usuarios planteadas.
 
-```
+```java
 package task;
 import UI.DafitiPage;
 import net.serenitybdd.core.steps.Instrumented;
