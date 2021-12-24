@@ -181,3 +181,68 @@ public class BusquedaProductoStepsDefinitions {
 }
 
 ```
+
+# Features
+los features son las historias de usuario que se llevarán a cabo en las pruebas y proveerá los métodos que utilizaremos más adelante para los StepDefinitions.
+- Busqueda Fallida
+
+```java
+Feature: Probar las Busqueda en Dafiti
+
+  Scenario: Buscar Productos en Dafiti
+    Given Navego en Dafiti
+    When Busco 'Tenis Gris adidas Performance GALAXY 5' los en Dafiti
+    Then Obtengo y Valido los Resultados
+
+
+  Scenario: Buscar Productos en Dafiti
+    Given Navego en Dafiti
+    When Busco 'Xiaomi RedmiNote 8' los en Dafiti
+    Then Obtengo y Valido los Resultados
+
+```
+
+- Busqueda 5 Productos
+```java
+Feature: Probar las Busqueda en Dafiti
+
+  Scenario Outline: Buscar Productos en Dafiti
+    Given Navego en Dafiti
+    When Busco <producto> los en Dafiti
+    Then Obtengo y Valido los Resultados
+    Examples:
+      |producto|
+    |'Tenis Gris adidas Performance GALAXY 5'|
+    |'Priceshoes Tenis Media Priceshoes Deportivos Dama 522Medianegro'|
+    |'Camisa Morado Nautica'|
+    |'Camisa Blanco Polo Ralph Lauren'|
+    |'Polo Morado Calvin Klein'|
+```
+- Varios Escenarios
+``` java
+Scenario Outline: Buscar Productos en Dafiti
+    Given Navego en Dafiti
+    When Busco <producto> los en Dafiti
+    Then Obtengo y Valido los Resultados
+
+    Examples:
+      |producto|
+      |'Tenis Gris adidas Performance GALAXY 5'|
+      |'Priceshoes Tenis Media Priceshoes Deportivos Dama 522Medianegro'|
+      |'Camisa Morado Nautica'|
+      |'Camisa Blanco Polo Ralph Lauren'|
+      |'Polo Morado Calvin Klein'|
+
+  Scenario Outline: Buscar Productos en Dafiti
+    Given Navego en Dafiti
+    When Busco <producto> los en Dafiti
+    Then Obtengo y Valido los Resultados
+    Examples:
+      |producto|
+      |'Tenis Gris adidas Performance GALAXY 5'|
+      |'Priceshoes Tenis Media Priceshoes Deportivos Dama 522Medianegro'|
+      |'Camisa Morado Nautica'|
+      |'Camisa Blanco Polo Ralph Lauren'|
+      |'Polo Morado Calvin Klein'|
+```
+
