@@ -124,7 +124,7 @@ public class VariasBusquedaRunner {
 }
 
 ```
-#StepDefinitions
+# StepDefinitions
 los Step Definitions son la traducción de los features a código. Los métodos que se utilizaran son los features (historias de usuario)
 
 ```java
