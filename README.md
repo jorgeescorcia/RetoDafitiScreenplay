@@ -9,7 +9,8 @@ la automatizacion tiene como objetivo lo siguiente:
 [![Estructura.png](https://i.postimg.cc/3wg8kX4L/Estructura.png)](https://postimg.cc/FfH5qJxc)
 
 # Task
-son las interacciones que se llevarán a cabo para cumplir con las historias de usuarios planteadas.
+son las interacciones que se llevarán a cabo para cumplir con las historias de usuarios planteadas, las task se caracteriza por que en esta hablamos en termino de acciones
+es decir. Buscar, validar,editar etc.
 
 ```java
 package task;
@@ -45,5 +46,81 @@ public class BuscarProducto implements Task {
 
 }
 
+
+```
+ # UI
+ las UI son el mapeo de la interfaz, donde capturaremos todos los elementos con los cuales podríamos llegar a interactuar durante la automatización.
+ ```java
+ package UI;
+
+import net.serenitybdd.screenplay.targets.Target;
+
+
+public class DafitiPage {
+
+
+
+    public static final Target inputBuscador = Target.the("").locatedBy("//input[@id='searchInput']");
+    public static final Target btnElementoBusqueda = Target.the("").locatedBy("//div [@class='itm-product-main-info']");
+    public static final Target txtElementoBusqueda = Target.the("").locatedBy("//h3[contains(text(),'{0}')]");
+
+}
+
+ ```
+ 
+ # Runner
+ es el ejecutor de los features, tags, glue (donde se encuentra el step definition), URL del driver
+  - Busqueda Fallida
+ ```java
+ package runner;
+
+import cucumber.api.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
+
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(
+        features ="src/test/resources/features/BusquedaFallida.feature",
+        glue = "stepdefinitions"
+)
+public class BusquedaFallidaRunner {
+}
+
+- Busqueda 5 Productos
+ 
+ ```java
+ package runner;
+
+
+import cucumber.api.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
+
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(
+    features ="src/test/resources/features/BusquedaProductosDafiti.feature",
+    glue = "stepdefinitions"
+        )
+
+public class BusquedaProductosRunner {
+}
+
+ ```
+- Varios Escenarios
+
+```java
+package runner;
+
+import cucumber.api.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
+
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(
+        features ="src/test/resources/features/VariasBusquedas.feature",
+        glue = "stepdefinitions"
+)
+public class VariasBusquedaRunner {
+}
 
 ```
